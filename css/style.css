@@ -1,0 +1,108 @@
+/* 1. 設定背景與全螢幕置中 */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #C599D2, #A786D5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  color: #FFFFFF;
+}
+
+/* 2. 核心：大容器，強制讓內容「垂直」排列 */
+.main-wrapper {
+  display: flex;
+  flex-direction: column; /* 讓標題、選項、確定鈕由上往下排 */
+  align-items: center;    /* 水平置中 */
+  gap: 30px;              /* 每個區塊之間的垂直間距 */
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* 3. 標題區樣式 */
+.header-section {
+  text-align: center;
+}
+
+.header-section h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+}
+
+/* 標題裡的小圖示 */
+.header-section img {
+  width: 40px;
+  height: auto;
+}
+
+/* 4. 選項區：讓 A、B、C 三個按鈕「橫向」併排 */
+.options-group {
+  display: flex;
+  flex-direction: row;    /* 橫向排列 */
+  flex-wrap: wrap;        /* 螢幕太小時自動換行 */
+  justify-content: center;
+  gap: 20px;
+}
+
+/* 5. 單個選項按鈕 (A, B, C) */
+.answer {
+  width: 250px;           /* 固定寬度避免擠壓 */
+  height: auto;           /* 高度隨內容自動調整 */
+  background-color: transparent;
+  border: 2px solid #FFFFFF;
+  border-radius: 20px;
+  padding: 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.answer:hover {
+  transform: scale(1.05); /* 滑鼠移上去稍微變大 */
+}
+
+/* 核心：限制按鈕內圖片的大小，避免撐爆版型 */
+.answer img {
+  width: 100%;            /* 寬度填滿按鈕 */
+  max-height: 120px;      /* 限制最高 120px */
+  object-fit: contain;    /* 保持比例不變形 */
+  margin-top: 15px;
+}
+
+/* 6. 確定按鈕：乖乖待在最下面 */
+.submit-btn {
+  width: 200px; 
+  height: 55px;
+  background-color: #FFFFFF;
+  color: #A786D5;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.submit-btn:active {
+  transform: translateY(2px); /* 按下去的體感效果 */
+}
+
+.result {
+  width: 200px; 
+  height: 0px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* 當按鈕被選中時的樣式 */
+.answer.selected {
+  border: 3px solid #FFD700; /* 金色邊框 */
+  background-color: rgba(255, 215, 0, 0.2); /* 淡淡的金色背景 */
+  transform: scale(1.05);
+}
