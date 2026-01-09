@@ -51,7 +51,7 @@ body {
 /* 5. 單個選項按鈕 (A, B, C) */
 .answer {
   width: 250px;           /* 固定寬度避免擠壓 */
-  height: 50vh;           /* 高度隨內容自動調整 */
+  height: auto;           /* 高度隨內容自動調整 */
   background-color: transparent;
   border: 2px solid #FFFFFF;
   border-radius: 20px;
